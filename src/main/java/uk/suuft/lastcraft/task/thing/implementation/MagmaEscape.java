@@ -2,6 +2,7 @@ package uk.suuft.lastcraft.task.thing.implementation;
 
 import com.hakan.core.item.ItemBuilder;
 import lombok.NonNull;
+import lombok.val;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -71,10 +72,8 @@ public class MagmaEscape implements AbstractThing {
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
-        if (playerMagmaTaskMap.containsKey(event.getPlayer().getName().toLowerCase())) {
-            playerMagmaTaskMap.get(event.getPlayer().getName().toLowerCase()).cancel();
-            playerMagmaTaskMap.remove(event.getPlayer().getName().toLowerCase()).cancel();
-        }
+        val task = playerMagmaTaskMap.remove(event.getPlayer().getName());
+        if (task != null) task.cancel();
     }
 
     @EventHandler
