@@ -14,12 +14,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import uk.suuft.lastcraft.task.model.Combination;
 import uk.suuft.lastcraft.task.thing.AbstractThing;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class ClickListener implements Listener {
+public class CombinationListener implements Listener {
 
     Map<String, AbstractThing> combinationThingMap;
     Map<String, Combination> combinationMap;

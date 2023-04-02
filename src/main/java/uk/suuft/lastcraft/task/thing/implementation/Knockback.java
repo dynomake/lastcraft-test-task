@@ -17,8 +17,8 @@ public class Knockback implements AbstractThing {
 
     @Override
     public ItemStack getItem() {
-        return new ItemBuilder(Material.IRON_SWORD)
-                .name("Ответный удар (палка x2 + поршень x1)")
+        return new ItemBuilder(Material.PISTON_BASE)
+                .name("Откидывание (палка x2 + кость x1)")
                 .build();
     }
 

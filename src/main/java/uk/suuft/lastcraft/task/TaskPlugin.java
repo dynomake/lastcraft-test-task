@@ -4,12 +4,9 @@ import com.hakan.core.plugin.Plugin;
 import lombok.NonNull;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
-import uk.suuft.lastcraft.task.listener.ClickListener;
+import uk.suuft.lastcraft.task.listener.CombinationListener;
 import uk.suuft.lastcraft.task.thing.AbstractThing;
-import uk.suuft.lastcraft.task.thing.implementation.Dynamite;
-import uk.suuft.lastcraft.task.thing.implementation.Fangs;
-import uk.suuft.lastcraft.task.thing.implementation.Knockback;
-import uk.suuft.lastcraft.task.thing.implementation.Lightning;
+import uk.suuft.lastcraft.task.thing.implementation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,10 +20,15 @@ public class TaskPlugin extends JavaPlugin {
     public void onEnable() {
         register(1, 1, 1, new Fangs());
         register(2, 2, 1, new Dynamite());
+        register(2, 3, 3, new WindPower());
         register(2, 1, 1, new Knockback());
         register(1, 2, 3, new Lightning());
+        register(3, 3, 1, new RoughMagic());
+        register(1, 1, 3, new Retaliation());
+        register(2, 2, 3, new MagmaEscape());
+        register(3, 3, 3, new Invisibility());
 
-        getServer().getPluginManager().registerEvents(new ClickListener(combinationThingMap, new HashMap<>()), this);
+        getServer().getPluginManager().registerEvents(new CombinationListener(combinationThingMap, new HashMap<>()), this);
     }
 
     @Override
