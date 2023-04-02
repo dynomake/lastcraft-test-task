@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'uk.suuft.lastcraft.task'
+version '1.0-SNAPSHOT'
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+    maven { url('https://hub.spigotmc.org/nexus/content/groups/public/') }
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compileOnly 'com.github.hakan-krgn.hCore:bukkit:0.6.9.6'
+    annotationProcessor 'com.github.hakan-krgn.hCore:bukkit:0.6.9.6'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+}
