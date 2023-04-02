@@ -28,7 +28,7 @@ public class Invisibility implements AbstractThing {
     @Override
     public void use(@NonNull Player player) {
         ItemStack[] armor = player.getInventory().getArmorContents();
-        player.getInventory().clear(39);
+        player.getInventory().setArmorContents(null);
         player.updateInventory();
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 20 * 30, 0));
